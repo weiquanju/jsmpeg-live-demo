@@ -1,3 +1,7 @@
+# [直播DEMO说明.md](./直播DEMO说明.md)
+
+点击上面链接
+
 # JSMpeg – MPEG1 Video & MP2 Audio Decoder in JavaScript
 
 JSMpeg is a Video Player written in JavaScript. It consists of an MPEG-TS demuxer, MPEG1 video & MP2 audio decoders, WebGL & Canvas2D renderers and WebAudio sound output. JSMpeg can load static videos via Ajax and allows low latency streaming (~50ms) via WebSockets.
