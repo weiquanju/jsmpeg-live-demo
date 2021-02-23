@@ -15,6 +15,10 @@ node  websocket-relay.js abcd1234 9999 8888
 
 ![image-20210223183531154](doc/create_live_server.png)
 
+播放地址即为：
+
+`ws://127.0.0.1:8888/`
+
 ### 2.ffmpeg 推流
 
 ```bash
