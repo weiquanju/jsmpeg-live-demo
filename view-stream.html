@@ -1,22 +1,47 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>JSMpeg Stream Client</title>
 	<style type="text/css">
-		html, body {
+		html,
+		body {
 			background-color: #111;
 			text-align: center;
 		}
 	</style>
-	
+
 </head>
+
 <body>
-	<canvas id="video-canvas"></canvas>
+	<div id="video-canvas">
+		<canvas></canvas>
+	</div>
+	<div>
+		<input id="url" style="width:60%" placeholder="播放地址，例如：ws://localhost:8021/"></input>
+		<button id="btn">设置地址</button>
+	</div>
 	<script type="text/javascript" src="jsmpeg.min.js"></script>
 	<script type="text/javascript">
-		var canvas = document.getElementById('video-canvas');
-		var url = 'ws://'+document.location.hostname+':8888/';
-		var player = new JSMpeg.Player(url, {canvas: canvas});
+		var canvasBox = document.getElementById('video-canvas');
+		var url = 'ws://' + document.location.hostname + ':8888/';
+		var player = new JSMpeg.Player(url, { canvas: canvasBox.firstElementChild });
+
+		var btnEl = document.getElementById('btn');
+		var urlInputEl = document.getElementById('url');
+		// 赋值当前播放地址
+		urlInputEl.value = url;
+		// 按钮点击事件，销毁后，重新创建播放器
+		btnEl.addEventListener('click',function(){
+			url = urlInputEl.value;
+			player.destroy();
+			console.log('reset player')
+			canvasBox.removeChild(canvasBox.firstChild);
+			var canvas = document.createElement('canvas')
+			canvasBox.appendChild(canvas)
+			player = new JSMpeg.Player(url, { canvas: canvas });
+		})
 	</script>
 </body>
+
 </html>
